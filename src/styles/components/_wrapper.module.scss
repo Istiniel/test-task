@@ -1,0 +1,12 @@
+@use '../abstracts/index' as *;
+
+.wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 10rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5rem;
+}

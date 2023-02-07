@@ -1,0 +1,92 @@
+@use '../abstracts/' as *;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: $primary-color-1;
+  width: 200px;
+  min-height: 3.6rem;
+  padding: 0 1.5rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+
+  font-family: $font-primary;
+  color: $accent-color-1;
+  @include font(1.2rem, 80%, $font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  vertical-align: middle;
+
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+  @extend %transition;
+
+  &:active {
+    transform: scale(0.98);
+  }
+  &:hover {
+    filter: brightness(1.09);
+  }
+}
+
+.disabled {
+  background-color: rgb(185, 185, 185) !important;
+  box-shadow: none !important;
+  cursor: auto !important;
+
+  color: rgb(99, 99, 99);
+
+  &:active {
+    transform: none !important;
+  }
+  &:hover {
+    filter: none !important;
+  }
+}
+
+.block {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.min {
+  width: 150px;
+  min-height: 3rem;
+  @include font(15px, 15px, 400);
+}
+
+.large {
+  width: 250px;
+  min-height: 4.5rem;
+}
+
+.danger {
+  background-color: rgb(255, 101, 101);
+  border-color: rgb(255, 101, 101) !important;
+}
+.success {
+  background-color: rgb(132, 255, 101);
+  border-color: rgb(132, 255, 101) !important;
+}
+.warning {
+  background-color: rgb(255, 240, 101);
+  border-color: rgb(255, 240, 101) !important;
+}
+.primary {
+  background-color: $primary-color-1;
+  border-color: $primary-color-1;
+}
+.outlined {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid $primary-color-1;
+}
+
+.text {
+  background-color: rgba(0, 0, 0, 0);
+
+  &:hover {
+    background-color: rgba(216, 216, 216, 0.5);
+  }
+}
