@@ -32,10 +32,12 @@ const SettingsModal: React.FC<SettingsModalType> = ({
   let activeUser = users.filter((e) => e.isDisabled === false)[0];
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflowY = 'hidden';
+    document.body.style.paddingRight = '16px';
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflowY = '';
+      document.body.style.paddingRight = '0px';
     };
   });
 

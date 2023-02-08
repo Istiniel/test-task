@@ -11,6 +11,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  overflow-y: hidden;
+  max-height: 100vh;
 }
 
 .modalSettings__frame {
