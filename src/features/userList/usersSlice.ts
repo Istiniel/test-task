@@ -8,6 +8,8 @@ export type UserType = {
   username: string;
   email: string;
   address: { street: string };
+  isDisabled: boolean;
+  isSelected: boolean;
 };
 
 interface UserListState {
@@ -33,7 +35,9 @@ export const userListSlice = createSlice({
   initialState,
   reducers: {
     deleteUser: (state, action: PayloadAction<number>) => {
-      state.users.filter((e) => e.id !== action.payload);
+      state.users = state.users.filter((e) => {
+        return e.id !== action.payload;
+      });
     },
     changeUserInfo: (
       state,
@@ -44,6 +48,19 @@ export const userListSlice = createSlice({
         action.payload as UserType,
       ].sort((a, b) => a.id - b.id);
     },
+    editInput: (state, action) => {
+      state.users.map((e) => {
+        if (e.id === action.payload) {
+          e.isDisabled = !e.isDisabled;
+        }
+        return e;
+      });
+    },
+    confirmDelete: (state, action) => {
+      state.users.map(
+        (e) => e.id === action.payload && (e.isSelected = !e.isSelected)
+      );
+    },
   },
 
   extraReducers: (builder) => {
@@ -53,7 +70,11 @@ export const userListSlice = createSlice({
       })
       .addCase(fetchUserList.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.users.push(...action.payload);
+        state.users.push(
+          ...action.payload.map((e: {}) => {
+            return { ...e, isDisabled: true, isSelected: false };
+          })
+        );
       })
       .addCase(fetchUserList.rejected, (state) => {
         state.status = 'failed';
@@ -61,7 +82,8 @@ export const userListSlice = createSlice({
   },
 });
 
-export const { deleteUser, changeUserInfo } = userListSlice.actions;
+export const { deleteUser, changeUserInfo, editInput, confirmDelete } =
+  userListSlice.actions;
 export default userListSlice.reducer;
 
 export const selectUsers = (state: RootState) => state.userList.users;

@@ -28,11 +28,14 @@ interface UserFormType {
 }
 
 interface UserInputType {
-  disabled: boolean;
   user: UserType;
   value: string;
   valueType: keyof UserType;
   onChange: (value: string, user: UserType, userProp: keyof UserType) => void;
+  validator?: {
+    isValideInput: boolean;
+    setIsValideInput: React.Dispatch<React.SetStateAction<boolean>>;
+  };
 }
 
 export type { ButtonType, DropDownType, UserFormType, UserInputType };

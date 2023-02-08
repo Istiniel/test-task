@@ -12,10 +12,10 @@ $font-weight-bold: 700;
 // Colors
 $primary-color-1: #d4f4ff;
 $primary-color-2: #7271aa;
-$primary-color-3: #7271aa;
+$primary-color-3: #344b47;
 $accent-color-1: #334a52;
 $accent-color-2: #e6f4f1;
-$accent-color-3: #e6f4f1;
+$accent-color-3: #bfd6d9;
 
 //breakpoints
 $break-xs: 320px;
@@ -27,3 +27,7 @@ $break-xl: 1600px;
 /// Container's maximum width
 /// @type Length
 $max-width: 1180px !default;
+
+///shadow
+$shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;

@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.userForm {
+  background-color: $primary-color-1;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: $shadow;
+  border-radius: 0.7rem;
+}
+
+.userForm__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  color: $primary-color-3;
+
+  cursor: pointer;
+}

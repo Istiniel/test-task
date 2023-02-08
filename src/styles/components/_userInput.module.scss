@@ -1,0 +1,50 @@
+@use '../abstracts/' as *;
+
+.input__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem 0;
+  gap: 0.5rem;
+
+  // &:first-child {
+  //   margin-top: 0;
+  // }
+}
+
+.userForm__label {
+  padding-left: 1rem;
+
+  color: $primary-color-3;
+  @include font(1.2rem, 80%, $font-weight-bold);
+  letter-spacing: 0.05rem;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.userForm__input {
+  padding: 0.3rem 1rem;
+  border: 1px solid $accent-color-3;
+  border-radius: 0.3rem;
+  background-color: $accent-color-2;
+  color: $accent-color-1;
+
+  @include font(1.2rem, 80%, $font-weight-semibold);
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+
+  &[disabled] {
+    background-color: $primary-color-1;
+    border: 1px solid transparent;
+    color: $accent-color-1;
+  }
+
+  &:focus {
+    outline: 1px solid $accent-color-3;
+  }
+
+  &:invalid {
+    background-color: rgb(255, 227, 227);
+  }
+}

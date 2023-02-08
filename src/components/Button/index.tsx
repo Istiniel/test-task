@@ -35,7 +35,7 @@ const Button: React.FC<ButtonType> = ({
     <button
       disabled={disabled}
       className={classesGenerator()}
-      type="button"
+      type="submit"
       onClick={onClick}
     >
       {loading && <Loader />}
