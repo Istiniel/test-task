@@ -51,49 +51,47 @@ const UserForm: React.FC<UserFormType> = ({ users }) => {
 
   return (
     <>
-      {users.map((user) => (
-        <>
-          <form key={user.id} className={st.userForm}>
-            <UserInput
-              user={user}
-              value={user.name}
-              onChange={changeInput}
-              valueType="name"
-            />
-            <UserInput
-              user={user}
-              value={user.username}
-              onChange={changeInput}
-              valueType="username"
-            />
-            <UserInput
-              user={user}
-              value={user.email}
-              onChange={changeInput}
-              valueType="email"
-            />
-            <UserInput
-              user={user}
-              value={user.address['street']}
-              onChange={changeInput}
-              valueType="address"
-            />
-            <IconContext.Provider value={{ className: st.userForm__icon }}>
-              <div
-                onClick={() => {
-                  toggleModalWindow(user.id);
-                }}
-              >
-                <RemoveIcon />
-              </div>
-            </IconContext.Provider>
-            <IconContext.Provider value={{ className: st.userForm__icon }}>
-              <div onClick={() => toggleSettings(user.id)}>
-                <SettingIcon />
-              </div>
-            </IconContext.Provider>
-          </form>
-        </>
+      {users.map((user, index) => (
+        <form className={st.userForm} key={user.id}>
+          <UserInput
+            user={user}
+            value={user.name}
+            onChange={changeInput}
+            valueType="name"
+          />
+          <UserInput
+            user={user}
+            value={user.username}
+            onChange={changeInput}
+            valueType="username"
+          />
+          <UserInput
+            user={user}
+            value={user.email}
+            onChange={changeInput}
+            valueType="email"
+          />
+          <UserInput
+            user={user}
+            value={user.address['street']}
+            onChange={changeInput}
+            valueType="address"
+          />
+          <IconContext.Provider value={{ className: st.userForm__icon }}>
+            <div
+              onClick={() => {
+                toggleModalWindow(user.id);
+              }}
+            >
+              <RemoveIcon />
+            </div>
+          </IconContext.Provider>
+          <IconContext.Provider value={{ className: st.userForm__icon }}>
+            <div onClick={() => toggleSettings(user.id)}>
+              <SettingIcon />
+            </div>
+          </IconContext.Provider>
+        </form>
       ))}
       {isSettingsOpen && (
         <SettingsModal

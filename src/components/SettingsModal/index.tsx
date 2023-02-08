@@ -1,13 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from './../Button/index';
 import st from '../../styles/components/_settingsModal.module.scss';
 
 //types
-import {
-  changeUserInfo,
-  editInput,
-  UserType,
-} from '../../features/userList/usersSlice';
+import { editInput, UserType } from '../../features/userList/usersSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectUsers } from '../../features/userList/usersSlice';
 import UserInput from '../UserInput';

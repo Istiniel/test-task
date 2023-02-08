@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import st from '../../styles/components/_userInput.module.scss';
 
 //types
