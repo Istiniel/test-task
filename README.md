@@ -1,1 +1,1 @@
-https://istiniel.github.io/test-task/
+https://istiniel.github.io/test-task/ - деплой
