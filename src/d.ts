@@ -1,3 +1,5 @@
+import { UserType } from './features/userList/usersSlice';
+
 //types
 interface ButtonType {
   loading?: boolean;
@@ -20,4 +22,17 @@ interface DropDownType {
   onOptionChoose: () => void;
 }
 
-export type { ButtonType, DropDownType };
+interface UserFormType {
+  users: UserType[];
+  children?: React.ReactNode;
+}
+
+interface UserInputType {
+  disabled: boolean;
+  user: UserType;
+  value: string;
+  valueType: keyof UserType;
+  onChange: (value: string, user: UserType, userProp: keyof UserType) => void;
+}
+
+export type { ButtonType, DropDownType, UserFormType, UserInputType };

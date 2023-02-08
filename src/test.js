@@ -1,1 +1,1 @@
-console.log([1, false ? 2 : '', true ? 3 : ''].join(' '));
+console.log({ ...{ id: 1, name: 'lel' } });

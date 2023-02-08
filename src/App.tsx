@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Counter } from './features/counter/Counter';
 import './styles/App.module.scss';
 
 //icon
@@ -10,6 +9,7 @@ import { FaBuffer } from 'react-icons/fa';
 import Button from './components/Button';
 import Wrapper from './components/Wrapper/index';
 import DropDown from './components/DropDown/index';
+import UserList from './components/UserList/index';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -53,6 +53,8 @@ const App: React.FC = () => {
         ]}
         onOptionChoose={() => alert('Clicked')}
       />
+
+      <UserList />
     </Wrapper>
   );
 };
