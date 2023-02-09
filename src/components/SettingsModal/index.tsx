@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Button from './../Button/index';
 import st from '../../styles/components/_settingsModal.module.scss';
 
 //types
-import { editInput, UserType } from '../../features/userList/usersSlice';
+import {
+  changeUserInfo,
+  editInput,
+  UserType,
+} from '../../features/userList/usersSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectUsers } from '../../features/userList/usersSlice';
 import UserInput from '../UserInput';
@@ -31,23 +35,24 @@ const SettingsModal: React.FC<SettingsModalType> = ({
 
   let activeUser = users.filter((e) => e.isDisabled === false)[0];
 
+  // save User state before updating it in Modal Window, in order to cancel changes if needed
+  let userOrigin = useRef<UserType>({ ...activeUser });
+
   useEffect(() => {
     let scrollbarWidth = window.innerWidth - document.body.clientWidth + 'px';
     document.body.style.paddingRight = '' + scrollbarWidth;
     document.body.style.overflow = 'hidden';
-
     return () => {
       document.body.style.paddingRight = '0px';
       document.body.style.overflow = '';
     };
-  });
+  }, []);
 
   const closeModal = (e: React.SyntheticEvent<EventTarget>) => {
-    if (!isValideInput) return;
-    dispatch(editInput(activeUser.id));
     settings.setIsSettingsOpen(false);
+    dispatch(changeUserInfo(userOrigin.current));
+    dispatch(editInput(activeUser.id));
   };
-
   const saveChanges = (e: React.SyntheticEvent<EventTarget>) => {
     if (!isValideInput) return;
     dispatch(editInput(activeUser.id));

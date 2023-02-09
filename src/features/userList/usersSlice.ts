@@ -39,24 +39,18 @@ export const userListSlice = createSlice({
         return e.id !== action.payload;
       });
     },
-    changeUserInfo: (
-      state,
-      action: PayloadAction<{ [key in keyof Partial<UserType>]: UserType[key] }>
-    ) => {
+    changeUserInfo: (state, action: PayloadAction<UserType>) => {
       state.users = [
         ...state.users.filter((e) => e.id !== action.payload['id']),
         action.payload as UserType,
       ].sort((a, b) => a.id - b.id);
     },
-    editInput: (state, action) => {
-      state.users.map((e) => {
-        if (e.id === action.payload) {
-          e.isDisabled = !e.isDisabled;
-        }
-        return e;
-      });
+    editInput: (state, action: PayloadAction<number>) => {
+      state.users.map(
+        (e) => e.id === action.payload && (e.isDisabled = !e.isDisabled)
+      );
     },
-    confirmDelete: (state, action) => {
+    confirmDelete: (state, action: PayloadAction<number>) => {
       state.users.map(
         (e) => e.id === action.payload && (e.isSelected = !e.isSelected)
       );
