@@ -32,12 +32,13 @@ const SettingsModal: React.FC<SettingsModalType> = ({
   let activeUser = users.filter((e) => e.isDisabled === false)[0];
 
   useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-    document.body.style.paddingRight = '16px';
+    let scrollbarWidth = window.innerWidth - document.body.clientWidth + 'px';
+    document.body.style.paddingRight = '' + scrollbarWidth;
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflowY = '';
       document.body.style.paddingRight = '0px';
+      document.body.style.overflow = '';
     };
   });
 

@@ -1,6 +1,7 @@
 @use '../abstracts/' as *;
 
 .userForm {
+  max-width: 1100px;
   background-color: $primary-color-1;
   padding: 1.5rem 2rem;
   display: flex;

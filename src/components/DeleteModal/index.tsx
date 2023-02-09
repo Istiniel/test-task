@@ -6,7 +6,6 @@ import st from '../../styles/components/_modalDelete.module.scss';
 import { confirmDelete, deleteUser } from '../../features/userList/usersSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectUsers } from '../../features/userList/usersSlice';
-import { number } from 'yargs';
 
 interface DeleteModalType {
   settings: {
@@ -20,12 +19,13 @@ const DeleteModal: React.FC<DeleteModalType> = ({ settings }) => {
   const users = useAppSelector(selectUsers);
 
   useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-    document.body.style.paddingRight = '16px';
+    let scrollbarWidth = window.innerWidth - document.body.clientWidth + 'px';
+    document.body.style.paddingRight = '' + scrollbarWidth;
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflowY = '';
       document.body.style.paddingRight = '0px';
+      document.body.style.overflow = '';
     };
   });
 
