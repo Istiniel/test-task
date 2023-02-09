@@ -24,6 +24,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include maxQ(medium) {
+    max-width: 23rem;
+  }
 }
 
 .modalDelete__title {
@@ -38,6 +42,12 @@
   font-family: $font-primary;
   color: $accent-color-1;
   @include font(1rem, 80%, $font-weight-semibold);
+
+  @include maxQ(medium) {
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
 }
 
 .modalDelete__buttons {
@@ -46,4 +56,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
+
+  @include maxQ(medium) {
+    padding: 0 0;
+    gap: 1rem;
+  }
 }

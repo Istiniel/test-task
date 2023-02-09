@@ -9,6 +9,10 @@
   gap: 1rem;
   box-shadow: $shadow;
   border-radius: 0.7rem;
+
+  @include maxQ(medium) {
+    flex-direction: column;
+  }
 }
 
 .userForm__icon {
@@ -18,4 +22,14 @@
   color: $primary-color-3;
 
   cursor: pointer;
+}
+
+.userForm__buttons {
+  display: flex;
+  gap: 1rem;
+
+  @include maxQ(medium) {
+    justify-content: space-around;
+    gap: 5rem;
+  }
 }
