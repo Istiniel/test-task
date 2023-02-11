@@ -11,7 +11,7 @@ function toFive(number) {
 console.log(`Task 2: \n${toFive(27.1)}\n`);
 
 // 3 task
-function computers(number) {
+ function computers(number) {
   let result = {
     1: ' компьютер',
     2: ' компьютера',
@@ -92,6 +92,8 @@ function multTable(n) {
     arr = [];
   }
 
+
+  
   return result;
 }
 console.log(`Task 6: \n${multTable(15)}`);

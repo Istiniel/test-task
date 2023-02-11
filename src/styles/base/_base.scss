@@ -1,8 +1,17 @@
 // -----------------------------------------------------------------------------
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
-@use '../abstracts/variables' as *;
+@use '../abstracts' as *;
 
 body {
   background-color: #e6f4f1;
+}
+
+.buttons__container {
+  display: flex;
+  gap: 5rem;
+
+  @include maxQ(medium) {
+    flex-direction: column;
+  }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/App.module.scss';
+import st from './styles/App.module.scss';
 
 //icon
 import icon from './assets/icons/line_item.svg';
@@ -30,8 +30,7 @@ const App: React.FC = () => {
         Download
       </Button>
 
-      {/* Inline style for placing buttons in one row without extra styling (classes etc) */}
-      <div style={{ display: 'flex', gap: '5rem' }}>
+      <div className={st.buttons__container}>
         <DropDown
           type="hover"
           title="HOVER"
