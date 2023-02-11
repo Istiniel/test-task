@@ -29,31 +29,32 @@ const App: React.FC = () => {
         {<FaBuffer /> || <img src={icon} alt="icon" />}
         Download
       </Button>
-      <DropDown
-        type="hover"
-        title="HOVER"
-        options={[
-          '1. string',
-          '2. number',
-          '3. boolean',
-          '4. object',
-          '5. null',
-        ]}
-        onOptionChoose={() => alert('Clicked')}
-      />
-      <DropDown
-        type="click"
-        title="CLICK"
-        options={[
-          '5. string',
-          '4. number',
-          '3. boolean',
-          '2. object',
-          '1. null',
-        ]}
-        onOptionChoose={() => alert('Clicked')}
-      />
 
+      {/* Inline style for placing buttons in one row without extra styling (classes etc) */}
+      <div style={{ display: 'flex', gap: '5rem' }}>
+        <DropDown
+          type="hover"
+          title="HOVER"
+          options={[
+            '1. string',
+            '2. number',
+            '3. boolean',
+            '4. object',
+            '5. null',
+          ]}
+        />
+        <DropDown
+          type="click"
+          title="CLICK"
+          options={[
+            '5. string',
+            '4. number',
+            '3. boolean',
+            '2. object',
+            '1. null',
+          ]}
+        />
+      </div>
       <UserList />
     </Wrapper>
   );

@@ -8,7 +8,6 @@ import { DropDownType } from '../../d';
 const DropDown: React.FC<DropDownType> = ({
   title = 'DropDown',
   options,
-  onOptionChoose,
   type,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -51,13 +50,18 @@ const DropDown: React.FC<DropDownType> = ({
       {isOpen && (
         <ul
           className={st['dropDown__options']}
-          onClick={(e) => {
-            setIsOpen(false);
-            onOptionChoose();
-          }}
+          onClick={(e) => e.stopPropagation()}
         >
           {options.map((option) => (
-            <li key={option}>{option}</li>
+            <li
+              key={option}
+              onClick={(e) => {
+                alert((e.target as HTMLLIElement).innerHTML);
+                setIsOpen(false);
+              }}
+            >
+              {option}
+            </li>
           ))}
         </ul>
       )}

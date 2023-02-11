@@ -79,17 +79,17 @@ const UserForm: React.FC<UserFormType> = ({ users }) => {
           />
           <div className={st.userForm__buttons}>
             <IconContext.Provider value={{ className: st.userForm__icon }}>
+              <div onClick={() => toggleSettings(user.id)}>
+                <SettingIcon />
+              </div>
+            </IconContext.Provider>
+            <IconContext.Provider value={{ className: st.userForm__icon }}>
               <div
                 onClick={() => {
                   toggleModalWindow(user.id);
                 }}
               >
                 <RemoveIcon />
-              </div>
-            </IconContext.Provider>
-            <IconContext.Provider value={{ className: st.userForm__icon }}>
-              <div onClick={() => toggleSettings(user.id)}>
-                <SettingIcon />
               </div>
             </IconContext.Provider>
           </div>

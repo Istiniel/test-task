@@ -19,7 +19,6 @@ interface DropDownType {
   title?: string;
   options: string[];
   children?: React.ReactNode;
-  onOptionChoose: () => void;
 }
 
 interface UserFormType {

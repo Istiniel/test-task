@@ -10,9 +10,10 @@ export const useToggleDropDown = (
       if (!dropContent.current?.contains(e.target as Node)) setIsOpen(false);
     };
     document.addEventListener('click', closeDropDown as any);
-
+    console.log('mount');
     return () => {
       document.removeEventListener('click', closeDropDown as any);
+      console.log('unmount');
     };
   }, [isOpen, setIsOpen, dropContent]);
 
